@@ -6,7 +6,7 @@ import { MenuItems1 } from "../../constants";
 import MenuItem from "../../components/MenuItem";
 import { Switch } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme } from "../../store/Theme/ThemeSlice";
+import { toggleTheme } from "../../store/Theme/themeSlice";
 
 const DashboardLayout = () => {
   const dispatch = useDispatch();
@@ -22,12 +22,8 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className={`${themeMode === "dark" ? "bg-gray-600" : "bg-white"}`}>
-      <div
-        className={`h-[100vh] w-[100px] shadow-lg flex flex-col justify-between gap-10 items-center py-4  ${
-          themeMode === "dark" ? "bg-gray-800" : "bg-white"
-        }`}
-      >
+    <div className="dark:bg-gray-600 bg-white">
+      <div className="h-[100vh] w-[100px] shadow-lg flex flex-col justify-between gap-10 items-center py-4 dark:bg-gray-800 bg-white">
         <div className=" size-[64px] rounded-md bg-blue-400 flex items-center justify-center cursor-pointer hover:opacity-75">
           <FaCat className={`size-8 text-white`} />
         </div>
