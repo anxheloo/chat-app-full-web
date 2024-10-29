@@ -1,14 +1,13 @@
-import React, { Suspense, lazy } from "react";
-
-const Cat = lazy(() => import("../../components/cat"));
+import React from "react";
+import Chats from "./Chats";
+import ChatRoom from "../../components/Chat/ChatRoom";
 
 const GeneralApp = () => {
   return (
-    <>
-      <Suspense fallback={"Loading..."}>
-        <Cat />
-      </Suspense>
-    </>
+    <div className="flex relative">
+      <Chats />
+      <ChatRoom />
+    </div>
   );
 };
 

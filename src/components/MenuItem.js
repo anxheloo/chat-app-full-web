@@ -6,7 +6,7 @@ const MenuItem = ({ item, handleClick, selected }) => {
       id={item.index}
       onClick={handleClick}
       className={`size-[44px] rounded-md ${
-        selected === item.index && "bg-blue-400"
+        selected === item.index && "bg-blue-400 dark:bg-bgDark2"
       } flex items-center justify-center cursor-pointer hover:opacity-75 `}
     >
       <div
