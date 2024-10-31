@@ -1,6 +1,7 @@
 import React from "react";
+import ActionMenu from "../Actions/ActionMenu";
 
-const MediaMsg = ({ data }) => {
+const MediaMsg = ({ data, dotsMenu }) => {
   return (
     <div
       className={`w-full flex ${
@@ -10,7 +11,7 @@ const MediaMsg = ({ data }) => {
       <div
         className={`${
           data.incoming ? "bg-green-500" : "bg-[#0057b8]"
-        } rounded-md w-max`}
+        } rounded-md w-max relative`}
       >
         <div className="space-y-2">
           <img
@@ -20,6 +21,7 @@ const MediaMsg = ({ data }) => {
           />
           <p className={`text-white p-2`}>{data.message}</p>
         </div>
+        {dotsMenu && <ActionMenu />}
       </div>
     </div>
   );

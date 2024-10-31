@@ -4,7 +4,7 @@ import Menu from "../../components/menu/Menu";
 
 const DashboardLayout = () => {
   return (
-    <div className="dark:bg-bgDark bg-white flex overflow-hidden">
+    <div className="dark:bg-bgDark bg-white flex overflow-hidden transition-colors 0.3s ease-in-out">
       <Menu />
       <div className="h-screen w-full">
         <Outlet />

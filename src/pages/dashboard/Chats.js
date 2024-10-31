@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useMemo, useState } from "react";
 import { LuCircleDashed } from "react-icons/lu";
 import { CgSearch } from "react-icons/cg";
 import { LuArrowDownSquare } from "react-icons/lu";
@@ -97,13 +97,18 @@ const Chatlist = [
     online: true,
   },
 ];
-
-const Chats = () => {
+const Chats = memo(() => {
   const [isOpen, setIsOpen] = useState(true);
+
+  // Memoize filtered lists to prevent re-filtering on every render
+  const pinnedChats = useMemo(() => Chatlist.filter((item) => item.pinned), []);
+  const allChats = useMemo(() => Chatlist.filter((item) => !item.pinned), []);
 
   const toggleChats = () => {
     setIsOpen((prev) => !prev);
   };
+
+  console.log("Chats is rendered");
 
   return (
     <div
@@ -111,7 +116,8 @@ const Chats = () => {
         isOpen ? "w-[300px]" : "w-0"
       } bg-lightBlue dark:bg-bgDark2 shadow-md ${
         isOpen && "p-4"
-      } space-y-4 border-r dark:border-textPrimary transition-all duration-300 delay-200 ease-in-out`}
+      } space-y-4 border-r dark:border-textPrimary transition-all 0.3s ease-in-out`}
+      // className={containerClasses}
     >
       <div className="flex justify-between items-center">
         <h4 className=" text-lg font-bold dark:text-white">Chats</h4>
@@ -152,7 +158,10 @@ const Chats = () => {
             Pinned
           </h5>
           <div className="flex flex-col gap-2 ">
-            {Chatlist.filter((item) => item.pinned === true).map((item) => (
+            {/* {Chatlist.filter((item) => item.pinned === true).map((item) => (
+              <ChatElement key={item.id} data={item} />
+            ))} */}
+            {pinnedChats.map((item) => (
               <ChatElement key={item.id} data={item} />
             ))}
           </div>
@@ -164,7 +173,10 @@ const Chats = () => {
           </h5>
 
           <div className="flex flex-col gap-2 ">
-            {Chatlist.filter((item) => item.pinned !== true).map((item) => (
+            {/* {Chatlist.filter((item) => item.pinned !== true).map((item) => (
+              <ChatElement key={item.id} data={item} />
+            ))} */}
+            {allChats.map((item) => (
               <ChatElement key={item.id} data={item} />
             ))}
           </div>
@@ -172,6 +184,6 @@ const Chats = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Chats;

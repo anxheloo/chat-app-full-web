@@ -1,7 +1,8 @@
 import React from "react";
 import { BsDownload } from "react-icons/bs";
+import ActionMenu from "../Actions/ActionMenu";
 
-const DocType = ({ data }) => {
+const DocType = ({ data, dotsMenu }) => {
   return (
     <div
       className={`w-full flex ${
@@ -11,7 +12,7 @@ const DocType = ({ data }) => {
       <div
         className={`${
           data.incoming ? "bg-green-500" : "bg-[#0057b8]"
-        } rounded-md w-max`}
+        } rounded-md w-max relative`}
       >
         <div className="flex flex-col gap-2 text-white">
           <div className="p-2 flex flex-row gap-3 items-center">
@@ -22,6 +23,7 @@ const DocType = ({ data }) => {
 
           <p className="text-sm p-1">{data.message}</p>
         </div>
+        {dotsMenu && <ActionMenu />}
       </div>
     </div>
   );

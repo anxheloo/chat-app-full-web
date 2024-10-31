@@ -19,7 +19,7 @@ const Conversation = () => {
     <div className="flex flex-col flex-1 h-full">
       <Header data={data} />
       <div className="bg-white dark:bg-mainBg h-full overflow-y-scroll menu">
-        <Message />
+        <Message dotsMenu={true} />
       </div>
       <Footer />
     </div>

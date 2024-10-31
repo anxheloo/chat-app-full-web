@@ -82,3 +82,7 @@ PING ANIMATION
     scale: 1;
   }
 }
+
+.transition-width-only {
+  transition: width 300ms ease-in-out, padding 300ms ease-in-out;
+}

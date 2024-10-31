@@ -5,6 +5,12 @@ import { CiSettings } from "react-icons/ci";
 import { CgSearch } from "react-icons/cg";
 import { IoVideocamOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
+import { AiOutlineUser } from "react-icons/ai";
+import { IoDocumentOutline } from "react-icons/io5";
+import { CiCamera } from "react-icons/ci";
+import { GoFileMedia } from "react-icons/go";
+import { RiFile4Line } from "react-icons/ri";
+import { CiLogout } from "react-icons/ci";
 
 const MenuItems1 = [
   {
@@ -227,55 +233,174 @@ const Shared_docs = [
   },
 ];
 
-// const Shared_links = [
-//   {
-//     type: "msg",
-//     subtype: "link",
-//     preview: faker.image.cats(),
-//     message: "Yep, I can also do that",
-//     incoming: true,
-//     outgoing: false,
-//   },
-//   {
-//     type: "msg",
-//     subtype: "link",
-//     preview: faker.image.cats(),
-//     message: "Yep, I can also do that",
-//     incoming: true,
-//     outgoing: false,
-//   },
-//   {
-//     type: "msg",
-//     subtype: "link",
-//     preview: faker.image.cats(),
-//     message: "Yep, I can also do that",
-//     incoming: true,
-//     outgoing: false,
-//   },
-//   {
-//     type: "msg",
-//     subtype: "link",
-//     preview: faker.image.cats(),
-//     message: "Yep, I can also do that",
-//     incoming: true,
-//     outgoing: false,
-//   },
-//   {
-//     type: "msg",
-//     subtype: "link",
-//     preview: faker.image.cats(),
-//     message: "Yep, I can also do that",
-//     incoming: true,
-//     outgoing: false,
-//   },
-//   {
-//     type: "msg",
-//     subtype: "link",
-//     preview: faker.image.cats(),
-//     message: "Yep, I can also do that",
-//     incoming: true,
-//     outgoing: false,
-//   },
+const Shared_links = [
+  {
+    type: "msg",
+    subtype: "link",
+    preview:
+      "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    message: "Yep, I can also do that",
+    incoming: true,
+    outgoing: false,
+  },
+  {
+    type: "msg",
+    subtype: "link",
+    preview:
+      "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    message: "Yep, I can also do that",
+    incoming: true,
+    outgoing: false,
+  },
+  {
+    type: "msg",
+    subtype: "link",
+    preview:
+      "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    message: "Yep, I can also do that",
+    incoming: true,
+    outgoing: false,
+  },
+  {
+    type: "msg",
+    subtype: "link",
+    preview:
+      "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    message: "Yep, I can also do that",
+    incoming: true,
+    outgoing: false,
+  },
+  {
+    type: "msg",
+    subtype: "link",
+    preview:
+      "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    message: "Yep, I can also do that",
+    incoming: true,
+    outgoing: false,
+  },
+  {
+    type: "msg",
+    subtype: "link",
+    preview:
+      "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    message: "Yep, I can also do that",
+    incoming: true,
+    outgoing: false,
+  },
+];
+
+const ActionIcons = [
+  {
+    id: 0,
+    icon: (
+      <AiOutlineUser
+        className={`size-[21px] dark:text-white text-white cursor-pointer`}
+        // bg-[#03045E]
+      />
+    ),
+    title: "User",
+  },
+  {
+    id: 1,
+    icon: (
+      <IoDocumentOutline
+        className={`size-[21px] dark:text-white text-white cursor-pointer `}
+        // bg-[#023E8A]
+      />
+    ),
+    title: "File",
+  },
+  {
+    id: 2,
+    icon: (
+      <CiCamera
+        className={`size-[21px] dark:text-white text-white cursor-pointer `}
+        // bg-[#0077B6]
+      />
+    ),
+    title: "Camera",
+  },
+  {
+    id: 3,
+    icon: (
+      <RiFile4Line
+        className={`size-[21px] dark:text-white text-white cursor-pointer `}
+        // bg-[#0096C7]
+      />
+    ),
+    title: "File2",
+  },
+  {
+    id: 4,
+    icon: (
+      <GoFileMedia
+        className={`size-[21px] dark:text-white text-white cursor-pointer `}
+        // bg-[#00B4D8]
+      />
+    ),
+    title: "Media",
+  },
+];
+const ProfileIcons = [
+  {
+    id: 0,
+    icon: (
+      <FaUserGroup
+        className={`size-[21px]  text-black cursor-pointer`}
+        // bg-[#03045E]
+      />
+    ),
+    title: "Profile",
+  },
+  {
+    id: 1,
+    icon: (
+      <CiSettings
+        className={`size-[21px]  text-black cursor-pointer `}
+        // bg-[#023E8A]
+      />
+    ),
+    title: "Settings",
+  },
+  {
+    id: 2,
+    icon: (
+      <CiLogout
+        className={`size-[21px]  text-black cursor-pointer `}
+        // bg-[#0077B6]
+      />
+    ),
+    title: "Logout",
+  },
+];
+
+const MenuOptions = [
+  { title: "Reply" },
+  { title: "React to message" },
+  { title: "Forward message" },
+  { title: "Star message" },
+  { title: "Report" },
+  { title: "Delete Message" },
+];
+
+// const ProfileOptions = [
+//   { title: "Reply" },
+//   { title: "React to message" },
+//   { title: "Forward message" },
+//   { title: "Star message" },
+//   { title: "Report" },
+//   { title: "Delete Message" },
 // ];
 
-export { MenuItems1, TopBarItems, Chat_History, Message_options, Shared_docs };
+export {
+  MenuItems1,
+  TopBarItems,
+  Chat_History,
+  Message_options,
+  Shared_docs,
+  ActionIcons,
+  MenuOptions,
+  ProfileIcons,
+  Shared_links,
+};

@@ -1,6 +1,7 @@
 import React from "react";
+import ActionMenu from "../Actions/ActionMenu";
 
-const LinkMsg = ({ data }) => {
+const LinkMsg = ({ data, dotsMenu }) => {
   return (
     <div
       className={`w-full flex ${
@@ -10,7 +11,7 @@ const LinkMsg = ({ data }) => {
       <div
         className={`${
           data.incoming ? "bg-green-500" : "bg-[#0057b8]"
-        } rounded-md w-max`}
+        } rounded-md w-max relative`}
       >
         <div className="p-2 flex flex-col gap-3 rounded-md">
           <img
@@ -33,6 +34,7 @@ const LinkMsg = ({ data }) => {
             <p className="text-white">{data.message}</p>
           </div>
         </div>
+        {dotsMenu && <ActionMenu />}
       </div>
     </div>
   );

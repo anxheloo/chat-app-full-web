@@ -3,9 +3,15 @@ import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import themeSlice from "../store/Theme/themeSlice";
+import emojiSlice from "../store/Emoji/emojiSlice";
+import actionsSlice from "../store/Actions/actionsSlice";
+import userSlice from "../store/UserDetails/userSlice";
 
 const rootReducer = combineReducers({
   theme: themeSlice,
+  emoji: emojiSlice,
+  actions: actionsSlice,
+  user: userSlice,
 });
 
 const persistConfig = {

@@ -2,6 +2,8 @@ import React, { memo } from "react";
 import ProfilePic from "./Profile/ProfilePic";
 
 const ChatElement = memo(({ data }) => {
+  console.log("Chat element is rendered");
+
   return (
     <div className="w-full h-[65px] rounded-md flex gap-3  border border-bluePrimary dark:border-none dark:bg-black px-2 cursor-pointer dark:text-white hover:opacity-80 hover:shadow-lg">
       <ProfilePic data={data} />
