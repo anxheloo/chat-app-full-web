@@ -26,14 +26,7 @@ const UserDetails = memo(() => {
   const renderUI = useMemo(() => {
     switch (type) {
       case "contact":
-        return (
-          <Contact
-          // openDelete={openDelete}
-          // openBlock={openBlock}
-          // handleDeleteClose={handleDeleteClose}
-          // handleBlockClose={handleBlockClose}
-          />
-        );
+        return <Contact />;
 
       case "starred":
         return <Starred />;

@@ -14,7 +14,7 @@ const data = {
   pinned: true,
   online: false,
 };
-const Section1 = () => {
+const Section1 = ({ version }) => {
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-4">
@@ -25,16 +25,18 @@ const Section1 = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-around gap-2 border-b dark:border-textPrimary py-5 dark:text-white">
-        <div className="flex flex-col items-center cursor-pointer">
-          <IoVideocamOutline className=" size-[19px]" />
-          <span>Audio</span>
+      {version !== "settings" && (
+        <div className="flex items-center justify-around gap-2 border-b dark:border-textPrimary py-5 dark:text-white">
+          <div className="flex flex-col items-center cursor-pointer">
+            <IoVideocamOutline className=" size-[19px]" />
+            <span>Audio</span>
+          </div>
+          <div className="flex flex-col items-center cursor-pointer">
+            <IoCallOutline className=" size-[19px]" />
+            <span>Voice</span>
+          </div>
         </div>
-        <div className="flex flex-col items-center cursor-pointer">
-          <IoCallOutline className=" size-[19px]" />
-          <span>Voice</span>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

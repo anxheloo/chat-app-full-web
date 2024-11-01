@@ -11,27 +11,40 @@ import { CiCamera } from "react-icons/ci";
 import { GoFileMedia } from "react-icons/go";
 import { RiFile4Line } from "react-icons/ri";
 import { CiLogout } from "react-icons/ci";
+import { CiBellOn } from "react-icons/ci";
+import { SiGnuprivacyguard } from "react-icons/si";
+import { GrShieldSecurity } from "react-icons/gr";
+import { PiPencilCircleLight } from "react-icons/pi";
+import { LuWallpaper } from "react-icons/lu";
+import { RiAccountPinBoxLine } from "react-icons/ri";
+import { CiKeyboard } from "react-icons/ci";
+import { IoIosHelpCircleOutline } from "react-icons/io";
 
 const MenuItems1 = [
   {
     index: 0,
     icon: <AiOutlineMessage className={`size-6`} />,
+    path: "/app",
   },
   {
     index: 1,
     icon: <FaUserGroup className="size-6 " />,
+    path: "/asdf",
   },
   {
     index: 2,
     icon: <IoCallOutline className="size-6" />,
+    path: "/dfdf",
   },
   {
     index: 3,
     icon: <div className="w-[44px] h-[1px] bg-gray-300" />,
+    path: "/jjj",
   },
   {
     index: 4,
     icon: <CiSettings className="size-6 " />,
+    path: "/settings",
   },
 ];
 
@@ -79,6 +92,57 @@ const TopBarItems = [
         />
       </div>
     ),
+  },
+];
+
+const Settings_Items = [
+  {
+    id: "notifications",
+    index: 0,
+    title: "Notifications",
+    icon: <CiBellOn className="size-[23px] cursor-pointer" />,
+  },
+  {
+    id: "privacy",
+    index: 1,
+    title: "Privacy",
+    icon: <SiGnuprivacyguard className="size-[23px] cursor-pointer" />,
+  },
+  {
+    id: "security",
+    index: 2,
+    title: "Security",
+    icon: <GrShieldSecurity className="size-[23px] cursor-pointer" />,
+  },
+  {
+    id: "theme",
+    index: 3,
+    title: "Theme",
+    icon: <PiPencilCircleLight className="size-[23px] cursor-pointer" />,
+  },
+  {
+    id: "wallpaper",
+    index: 4,
+    title: "Chat Wallpaper",
+    icon: <LuWallpaper className="size-[23px] cursor-pointer" />,
+  },
+  {
+    id: "info",
+    index: 5,
+    title: "Request Account info",
+    icon: <RiAccountPinBoxLine className="size-[23px] cursor-pointer" />,
+  },
+  {
+    id: "shortcuts",
+    index: 6,
+    title: "Keyboard shortcuts",
+    icon: <CiKeyboard className="size-[23px] cursor-pointer" />,
+  },
+  {
+    id: "Help",
+    index: 7,
+    title: "Help",
+    icon: <IoIosHelpCircleOutline className="size-[23px] cursor-pointer" />,
   },
 ];
 
@@ -403,4 +467,5 @@ export {
   MenuOptions,
   ProfileIcons,
   Shared_links,
+  Settings_Items,
 };

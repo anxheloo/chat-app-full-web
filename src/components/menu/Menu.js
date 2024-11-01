@@ -5,11 +5,13 @@ import MenuItem from "../MenuItem";
 import { Switch } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../store/Theme/themeSlice";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const themeMode = useSelector((state) => state.theme.mode);
-  const [selected, setSelected] = useState(0);
+  // const [selected, setSelected] = useState(0);
   const [showActions, setShowActions] = useState(false);
 
   useEffect(() => {
@@ -24,9 +26,9 @@ const Menu = () => {
     dispatch(toggleTheme());
   };
 
-  const handleClick = (id) => {
-    setSelected(id);
-  };
+  // const handleClick = (id) => {
+  //   setSelected(id);
+  // };
 
   return (
     <div className="h-[100vh] w-[100px] shadow-lg flex flex-col justify-between gap-10 items-center py-4 dark:bg-mainBg bg-white transition-colors 0.3s ease-in-out">
@@ -41,8 +43,9 @@ const Menu = () => {
           ) : (
             <MenuItem
               item={item}
-              handleClick={() => handleClick(item.index)}
-              selected={selected}
+              // handleClick={() => handleClick(item.index)}
+              handleClick={() => navigate(item.path)}
+              // selected={selected}
             />
           )
         )}
