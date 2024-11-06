@@ -29,12 +29,12 @@ const MenuItems1 = [
   {
     index: 1,
     icon: <FaUserGroup className="size-6 " />,
-    path: "/asdf",
+    path: "/group",
   },
   {
     index: 2,
     icon: <IoCallOutline className="size-6" />,
-    path: "/dfdf",
+    path: "/call",
   },
   {
     index: 3,
@@ -214,6 +214,162 @@ const Chat_History = [
     message: "Yep, I can also do that",
     incoming: false,
     outgoing: true,
+  },
+];
+
+const Chatlist = [
+  {
+    id: 0,
+    img: "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    name: "Anxhelo",
+    msg: "ome ca bone",
+    time: "9:36",
+    unread: 0,
+    pinned: true,
+    online: false,
+  },
+  {
+    id: 1,
+    img: "https://yt3.ggpht.com/a/AATXAJxOx6uvCIEdUG-dNfj3Gqx6USeKl0jItzWYoUq2=s88-c-k-c0x00ffffff-no-rj",
+    name: "Mira",
+    msg: "Hola! Qué tal?",
+    time: "10:15",
+    unread: 2,
+    pinned: true,
+    online: false,
+  },
+  {
+    id: 2,
+    img: "https://yt3.ggpht.com/a/AATXAJyPG8z_5VONnCVbNxgJazwJ6f6FFdKrNsSGl3gx=s88-c-k-c0x00ffffff-no-rj",
+    name: "Leo",
+    msg: "Vamos a la playa?",
+    time: "11:04",
+    unread: 1,
+    pinned: false,
+    online: true,
+  },
+  {
+    id: 3,
+    img: "https://yt3.ggpht.com/a/AATXAJyI-bN3b4N_sgvYOKdQBBgFHTsNnlMeQzMOx_ZB=s88-c-k-c0x00ffffff-no-rj",
+    name: "Sofia",
+    msg: "Vuelve pronto!",
+    time: "12:45",
+    unread: 0,
+    pinned: false,
+    online: false,
+  },
+  {
+    id: 4,
+    img: "https://yt3.ggpht.com/a/AATXAJxLfQvhO-p4DwEnEjqWfjqWzXsDeqQaArOw5Wv0=s88-c-k-c0x00ffffff-no-rj",
+    name: "Carlos",
+    msg: "A qué hora nos vemos?",
+    time: "13:30",
+    unread: 3,
+    pinned: true,
+    online: true,
+  },
+  {
+    id: 5,
+    img: "https://yt3.ggpht.com/a/AATXAJyIGVJUkYlWdmEYtFg0glkXg68gP7j-mHuWgcfk=s88-c-k-c0x00ffffff-no-rj",
+    name: "Ana",
+    msg: "Te llamo más tarde",
+    time: "14:20",
+    unread: 0,
+    pinned: false,
+    online: false,
+  },
+  {
+    id: 6,
+    img: "https://yt3.ggpht.com/a/AATXAJxPPUu9Rhjdo5IS9MoxxLl1DZnDbR-eMfNVHpvc=s88-c-k-c0x00ffffff-no-rj",
+    name: "Julia",
+    msg: "Tienes el link?",
+    time: "15:00",
+    unread: 4,
+    pinned: false,
+    online: true,
+  },
+
+  {
+    id: 7,
+    img: "https://yt3.ggpht.com/a/AATXAJyIGVJUkYlWdmEYtFg0glkXg68gP7j-mHuWgcfk=s88-c-k-c0x00ffffff-no-rj",
+    name: "Ana",
+    msg: "Te llamo más tarde",
+    time: "14:20",
+    unread: 0,
+    pinned: false,
+    online: false,
+  },
+  {
+    id: 8,
+    img: "https://yt3.ggpht.com/a/AATXAJxPPUu9Rhjdo5IS9MoxxLl1DZnDbR-eMfNVHpvc=s88-c-k-c0x00ffffff-no-rj",
+    name: "Julia",
+    msg: "Tienes el link?",
+    time: "15:00",
+    unread: 4,
+    pinned: false,
+    online: true,
+  },
+];
+
+const CallLogs = [
+  {
+    id: 0,
+    img: "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    name: "Anxhelo",
+    missed: false,
+    incoming: true,
+    online: false,
+  },
+  {
+    id: 1,
+    img: "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    name: "Bexhet pacolli",
+    missed: false,
+    incoming: false,
+    online: false,
+  },
+  {
+    id: 2,
+    img: "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    name: "Ylli rakipi",
+    missed: false,
+    incoming: false,
+    online: true,
+  },
+  {
+    id: 3,
+    img: "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    name: "Favziu",
+    missed: false,
+    incoming: true,
+    online: true,
+  },
+];
+
+const CallMembers = [
+  {
+    id: 0,
+    img: "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    name: "Anxhelo",
+    online: false,
+  },
+  {
+    id: 1,
+    img: "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    name: "Bexhet pacolli",
+    online: false,
+  },
+  {
+    id: 2,
+    img: "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    name: "Ylli rakipi",
+    online: true,
+  },
+  {
+    id: 3,
+    img: "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    name: "Favziu",
+    online: true,
   },
 ];
 
@@ -406,6 +562,7 @@ const ActionIcons = [
     title: "Media",
   },
 ];
+
 const ProfileIcons = [
   {
     id: 0,
@@ -416,6 +573,7 @@ const ProfileIcons = [
       />
     ),
     title: "Profile",
+    path: "/profile",
   },
   {
     id: 1,
@@ -426,6 +584,7 @@ const ProfileIcons = [
       />
     ),
     title: "Settings",
+    path: "/settings",
   },
   {
     id: 2,
@@ -448,6 +607,100 @@ const MenuOptions = [
   { title: "Delete Message" },
 ];
 
+const GroupList = [
+  {
+    id: 0,
+    img: "https://yt3.ggpht.com/yti/ANjgQV8Q-ZN4d5-FpUviPW6zNfN_L3G3lXzMAVHuSCioSYt-NWI=s88-c-k-c0x00ffffff-no-rj",
+    name: "Anxhelo",
+    msg: "ome ca bone",
+    time: "9:36",
+    unread: 0,
+    pinned: true,
+    online: false,
+  },
+  {
+    id: 1,
+    img: "https://yt3.ggpht.com/a/AATXAJxOx6uvCIEdUG-dNfj3Gqx6USeKl0jItzWYoUq2=s88-c-k-c0x00ffffff-no-rj",
+    name: "Mira",
+    msg: "Hola! Qué tal?",
+    time: "10:15",
+    unread: 2,
+    pinned: true,
+    online: false,
+  },
+  {
+    id: 2,
+    img: "https://yt3.ggpht.com/a/AATXAJyPG8z_5VONnCVbNxgJazwJ6f6FFdKrNsSGl3gx=s88-c-k-c0x00ffffff-no-rj",
+    name: "Leo",
+    msg: "Vamos a la playa?",
+    time: "11:04",
+    unread: 1,
+    pinned: false,
+    online: true,
+  },
+  {
+    id: 3,
+    img: "https://yt3.ggpht.com/a/AATXAJyI-bN3b4N_sgvYOKdQBBgFHTsNnlMeQzMOx_ZB=s88-c-k-c0x00ffffff-no-rj",
+    name: "Sofia",
+    msg: "Vuelve pronto!",
+    time: "12:45",
+    unread: 0,
+    pinned: false,
+    online: false,
+  },
+  {
+    id: 4,
+    img: "https://yt3.ggpht.com/a/AATXAJxLfQvhO-p4DwEnEjqWfjqWzXsDeqQaArOw5Wv0=s88-c-k-c0x00ffffff-no-rj",
+    name: "Carlos",
+    msg: "A qué hora nos vemos?",
+    time: "13:30",
+    unread: 3,
+    pinned: true,
+    online: true,
+  },
+  {
+    id: 5,
+    img: "https://yt3.ggpht.com/a/AATXAJyIGVJUkYlWdmEYtFg0glkXg68gP7j-mHuWgcfk=s88-c-k-c0x00ffffff-no-rj",
+    name: "Ana",
+    msg: "Te llamo más tarde",
+    time: "14:20",
+    unread: 0,
+    pinned: false,
+    online: false,
+  },
+  {
+    id: 6,
+    img: "https://yt3.ggpht.com/a/AATXAJxPPUu9Rhjdo5IS9MoxxLl1DZnDbR-eMfNVHpvc=s88-c-k-c0x00ffffff-no-rj",
+    name: "Julia",
+    msg: "Tienes el link?",
+    time: "15:00",
+    unread: 4,
+    pinned: false,
+    online: true,
+  },
+
+  {
+    id: 7,
+    img: "https://yt3.ggpht.com/a/AATXAJyIGVJUkYlWdmEYtFg0glkXg68gP7j-mHuWgcfk=s88-c-k-c0x00ffffff-no-rj",
+    name: "Ana",
+    msg: "Te llamo más tarde",
+    time: "14:20",
+    unread: 0,
+    pinned: false,
+    online: false,
+  },
+  {
+    id: 8,
+    img: "https://yt3.ggpht.com/a/AATXAJxPPUu9Rhjdo5IS9MoxxLl1DZnDbR-eMfNVHpvc=s88-c-k-c0x00ffffff-no-rj",
+    name: "Julia",
+    msg: "Tienes el link?",
+    time: "15:00",
+    unread: 4,
+    pinned: false,
+    online: true,
+  },
+];
+
 // const ProfileOptions = [
 //   { title: "Reply" },
 //   { title: "React to message" },
@@ -461,6 +714,9 @@ export {
   MenuItems1,
   TopBarItems,
   Chat_History,
+  Chatlist,
+  CallLogs,
+  CallMembers,
   Message_options,
   Shared_docs,
   ActionIcons,
@@ -468,4 +724,5 @@ export {
   ProfileIcons,
   Shared_links,
   Settings_Items,
+  GroupList,
 };

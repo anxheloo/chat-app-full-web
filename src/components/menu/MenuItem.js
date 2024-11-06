@@ -1,9 +1,14 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useCallback } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const MenuItem = ({ item, handleClick }) => {
+const MenuItem = ({ item }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const selected = item.path === location.pathname;
+
+  const handleClick = useCallback(() => {
+    navigate(item?.path);
+  }, [item, navigate]);
 
   return (
     <div

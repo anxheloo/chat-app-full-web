@@ -4,6 +4,7 @@ import DashboardLayout from "./layouts/dashboard/DashboardLayout";
 // import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingScreen from "./components/LoadingScreen";
+import AuthLayout from "./layouts/AuthLayout";
 // import Settings from "./pages/dashboard/Settings/Settings";
 
 function App() {
@@ -23,6 +24,22 @@ function App() {
     lazy(() => import("./pages/dashboard/Settings/Settings"))
   );
 
+  const Login = Loadable(lazy(() => import("./pages/auth/Login")));
+
+  const Register = Loadable(lazy(() => import("./pages/auth/Register")));
+
+  const ResetPassword = Loadable(
+    lazy(() => import("./pages/auth/ResetPassword"))
+  );
+
+  const NewPassword = Loadable(lazy(() => import("./pages/auth/NewPassword")));
+
+  const Group = Loadable(lazy(() => import("./pages/dashboard/Group")));
+
+  const Call = Loadable(lazy(() => import("./pages/dashboard/Call")));
+
+  const ProfilePage = Loadable(lazy(() => import("./pages/dashboard/Profile")));
+
   const Page404 = Loadable(lazy(() => import("./pages/Page404")));
 
   return (
@@ -30,11 +47,22 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<DashboardLayout />}>
-            {/* <Route index element={<Navigate to={routeIndex} />} /> */}
             <Route path="app" element={<GeneralApp />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="group" element={<Group />} />
+            <Route path="call" element={<Call />} />
+            <Route path="profile" element={<ProfilePage />} />
             <Route path="*" element={<Page404 />} />
           </Route>
+
+          <Route path="auth" element={<AuthLayout />}>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="reset-password" element={<ResetPassword />} />
+            <Route path="new-password" element={<NewPassword />} />
+          </Route>
+
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>
     </div>

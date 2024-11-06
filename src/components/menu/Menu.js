@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { FaCat } from "react-icons/fa";
 import { MenuItems1, ProfileIcons } from "../../constants";
-import MenuItem from "../MenuItem";
 import { Switch } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../store/Theme/themeSlice";
-import { Navigate, useNavigate } from "react-router-dom";
+import MenuItem from "./MenuItem";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { toggleLeftSide } from "../../store/Actions/actionsSlice";
+import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const themeMode = useSelector((state) => state.theme.mode);
-  // const [selected, setSelected] = useState(0);
   const [showActions, setShowActions] = useState(false);
 
   useEffect(() => {
@@ -26,28 +26,18 @@ const Menu = () => {
     dispatch(toggleTheme());
   };
 
-  // const handleClick = (id) => {
-  //   setSelected(id);
-  // };
-
   return (
     <div className="h-[100vh] w-[100px] shadow-lg flex flex-col justify-between gap-10 items-center py-4 dark:bg-mainBg bg-white transition-colors 0.3s ease-in-out">
-      <div className=" size-[64px] min-h-[64px] rounded-md bg-blue-400 dark:bg-bgDark2 flex items-center justify-center cursor-pointer hover:opacity-75">
-        <FaCat className={`size-8 text-white`} />
+      <div
+        className=" size-[64px] min-h-[64px] rounded-md bg-blue-400 dark:bg-bgDark2 flex items-center justify-center cursor-pointer hover:opacity-75 active:opacity-65"
+        onClick={() => dispatch(toggleLeftSide())}
+      >
+        <RxHamburgerMenu className={`size-8 text-white pointer-events-none`} />
       </div>
 
       <div className="flex flex-col gap-6 items-center flex-1 w-full">
         {MenuItems1.map((item) =>
-          item.index === 3 ? (
-            item.icon
-          ) : (
-            <MenuItem
-              item={item}
-              // handleClick={() => handleClick(item.index)}
-              handleClick={() => navigate(item.path)}
-              // selected={selected}
-            />
-          )
+          item.index === 3 ? item.icon : <MenuItem item={item} />
         )}
       </div>
 
@@ -67,16 +57,31 @@ const Menu = () => {
 
         {showActions && (
           <div className="flex flex-col justify-start text-textPrimary p-2 bg-white gap-2 rounded-md shadow-md absolute bottom-0 -right-[95px] z-50">
-            {ProfileIcons.map((item, index) => (
-              <button
-                key={index}
-                onClick={""}
-                className=" text-left hover:bg-gray-100 p-1 rounded-sm flex justify-between gap-2 items-center"
-              >
-                {item.title}
-                {item.icon}
-              </button>
-            ))}
+            {ProfileIcons.map((item, index) => {
+              if (item.id === 2) {
+                return (
+                  <button
+                    key={index}
+                    onClick={() => console.log("toggle logout")}
+                    className=" text-left hover:bg-gray-100 p-1 rounded-sm flex justify-between gap-2 items-center"
+                  >
+                    {item.title}
+                    {item.icon}
+                  </button>
+                );
+              } else {
+                return (
+                  <button
+                    key={index}
+                    onClick={() => navigate(item.path)}
+                    className=" text-left hover:bg-gray-100 p-1 rounded-sm flex justify-between gap-2 items-center"
+                  >
+                    {item.title}
+                    {item.icon}
+                  </button>
+                );
+              }
+            })}
           </div>
         )}
       </div>
