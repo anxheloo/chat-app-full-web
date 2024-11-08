@@ -2,13 +2,13 @@ import React, { memo, useCallback } from "react";
 import ProfilePic from "../Profile/ProfilePic";
 import { TopBarItems } from "../../../constants";
 import { useDispatch } from "react-redux";
-import { toggleUserDetails } from "../../../store/UserDetails/userSlice";
+import { toggleMemberDetails } from "../../../store/MemberDetails/memberSlice";
 
 const Header = memo(({ data }) => {
   const dispatch = useDispatch();
 
   const showUserDetails = useCallback(() => {
-    dispatch(toggleUserDetails());
+    dispatch(toggleMemberDetails());
     console.log("Profile picture clicked");
   }, [dispatch]);
 

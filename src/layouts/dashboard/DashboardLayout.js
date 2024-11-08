@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import Menu from "../../components/Menu/Menu";
+import { useSelector } from "react-redux";
 
 const DashboardLayout = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const { isLoggedIn } = useSelector((state) => state.auth);
 
-  if (!isAuthenticated) {
+  if (!isLoggedIn) {
     return <Navigate to={"/auth/login"} />;
   }
 

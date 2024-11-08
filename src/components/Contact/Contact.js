@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProfilePic from "../Chat/Profile/ProfilePic";
 import Section1 from "../../pages/dashboard/User Info/Section1";
-import { setType } from "../../store/UserDetails/userSlice";
+import { setType } from "../../store/MemberDetails/memberSlice";
 import { useDispatch } from "react-redux";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { MdOutlineStarBorder } from "react-icons/md";

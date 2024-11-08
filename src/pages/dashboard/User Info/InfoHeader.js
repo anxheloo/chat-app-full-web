@@ -3,19 +3,19 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setType,
-  toggleUserDetails,
-} from "../../../store/UserDetails/userSlice";
+  toggleMemberDetails,
+} from "../../../store/MemberDetails/memberSlice";
 import { IoMdArrowBack } from "react-icons/io";
 
 const InfoHeader = () => {
   const dispatch = useDispatch();
-  const type = useSelector((state) => state.user.detailsType);
+  const type = useSelector((state) => state.member.detailsType);
 
   const closeInfo = (event) => {
     const { id } = event.target;
 
     if (id === "contact") {
-      dispatch(toggleUserDetails());
+      dispatch(toggleMemberDetails());
       return;
     }
 

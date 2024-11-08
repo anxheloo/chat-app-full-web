@@ -10,8 +10,8 @@ import DeleteModal from "../../../components/Modals/DeleteModal";
 import BlockModal from "../../../components/Modals/BlockModal";
 
 const UserDetails = memo(() => {
-  const isOpen = useSelector((state) => state.user.userDetailsMenu);
-  const type = useSelector((state) => state.user.detailsType);
+  const isOpen = useSelector((state) => state.member.memberDetailsMenu);
+  const type = useSelector((state) => state.member.detailsType);
 
   const [openDelete, setOpenDelete] = useState(false);
   const [openBlock, setOpenBlock] = useState(false);

@@ -5,8 +5,11 @@ import AuthSocial from "./AuthSocial";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useDispatch } from "react-redux";
+import { LoginUser } from "../../store/Auth/authSlice";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const schema = z.object({
     email: z.string().email(),
     password: z.string().min(8),
@@ -16,10 +19,11 @@ const LoginForm = () => {
     register,
     handleSubmit,
     setError,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm({
     defaultValues: {
-      email: "example@example.com",
+      email: "",
+      password: "",
     },
     resolver: zodResolver(schema),
   });
@@ -32,8 +36,9 @@ const LoginForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      throw new Error();
+      // await new Promise((resolve) => setTimeout(resolve, 1000));
+      // throw new Error();
+      dispatch(LoginUser(data));
       console.log(data);
     } catch (error) {
       setError("root", {
@@ -44,7 +49,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="py-4 space-y-2">
-      <div class="relative">
+      <div className="relative">
         <input
           type="email"
           id="email"
@@ -73,7 +78,7 @@ const LoginForm = () => {
       </div>
       {errors.email && <div>{errors.email.message}</div>}
 
-      <div class="relative">
+      <div className="relative">
         <IoEyeOffSharp
           className="absolute right-3 top-0 bottom-0 my-auto cursor-pointer active:opacity-70"
           onClick={togglePass}
