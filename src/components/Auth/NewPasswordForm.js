@@ -1,13 +1,29 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { z } from "zod";
+import { ResetPassword } from "../../store/Auth/authSlice";
+import { useSearchParams } from "react-router-dom";
+import LoadingBtn from "./LoadingBtn";
 
 const NewPasswordForm = () => {
-  const schema = z.object({
-    newPassword: z.string().min(8),
-    confirmPassword: z.string().min(8),
-  });
+  const [queryParameters] = useSearchParams();
+  const dispatch = useDispatch();
+  const schema = z
+    .object({
+      newPassword: z.string().min(8),
+      confirmPassword: z.string().min(8),
+    })
+    .refine(
+      (values) => {
+        return values.confirmPassword === values.newPassword;
+      },
+      {
+        message: "Passwords must match!",
+        path: ["confirmPassword"],
+      }
+    );
 
   const {
     register,
@@ -20,7 +36,7 @@ const NewPasswordForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      dispatch(ResetPassword({ ...data, token: queryParameters.get("token") }));
       console.log(data);
     } catch (error) {
       setError("root", {
@@ -36,6 +52,7 @@ const NewPasswordForm = () => {
           {...register("newPassword")}
           type="password"
           id="newPassword"
+          name="newPassword"
           className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
           placeholder=" "
         />
@@ -53,6 +70,7 @@ const NewPasswordForm = () => {
           {...register("confirmPassword")}
           type="password"
           id="confirmPassword"
+          name="confirmPassword"
           className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
           placeholder=" "
         />
@@ -65,13 +83,14 @@ const NewPasswordForm = () => {
       </div>
       {errors.confirmPassword && <div>{errors.confirmPassword.message}</div>}
 
-      <button
+      {/* <button
         disabled={isSubmitting}
         type="submit"
         className="w-full bg-black rounded-md p-3 text-white"
       >
         Submit
-      </button>
+      </button> */}
+      <LoadingBtn>Submit</LoadingBtn>
 
       {errors.root && <div>{errors.root.message}</div>}
     </form>

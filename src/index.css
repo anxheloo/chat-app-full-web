@@ -11,11 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  overflow: hidden;
 }
 
 /* 
@@ -87,4 +83,34 @@ PING ANIMATION
 
 .transition-width-only {
   transition: width 300ms ease-in-out, padding 300ms ease-in-out;
+}
+
+/* 
+===================
+Error ANIMATION 
+===================
+*/
+
+.error-box {
+  width: 250px;
+  background-color: red;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto 0 auto;
+  bottom: 20px;
+  direction: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(150%);
+  transition-property: transform;
+  transition-duration: 2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.2s;
+
+  /* w-[250px] bg-red-600 h-[50px] absolute left-0 right-0 bottom-5 mx-auto flex justify-center items-center translate-y-[150%] transition-transform ease-in-out duration-500 delay-200  */
+}
+
+.error-box-transition {
+  transform: translateY(0);
 }

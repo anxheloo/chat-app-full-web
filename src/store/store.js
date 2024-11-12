@@ -7,6 +7,7 @@ import emojiSlice from "../store/Emoji/emojiSlice";
 import actionsSlice from "../store/Actions/actionsSlice";
 import memberSlice from "../store/MemberDetails/memberSlice";
 import authSlice from "../store/Auth/authSlice";
+import usersSlice from "../store/Users/usersSlice";
 
 const rootReducer = combineReducers({
   theme: themeSlice,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   actions: actionsSlice,
   member: memberSlice,
   auth: authSlice,
+  users: usersSlice,
 });
 
 const persistConfig = {

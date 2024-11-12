@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setTheme } from "../../store/Theme/themeSlice";
+import Modal from "./Modal";
 
 const ThemeModal = ({ handleClose }) => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const ThemeModal = ({ handleClose }) => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.2)] flex items-center justify-center z-[999]">
+    <Modal>
       <div className="w-full max-w-[300px] h-full flex flex-col justify-between max-h-[150px] bg-white rounded-md p-4">
         <div>
           <h3 className=" font-bold text-black">Choose theme</h3>
@@ -52,7 +53,7 @@ const ThemeModal = ({ handleClose }) => {
           <button onClick={applyTheme}>Apply</button>
         </div>
       </div>
-    </div>
+    </Modal>
   );
 };
 

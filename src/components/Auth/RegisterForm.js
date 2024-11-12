@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoEyeOffSharp } from "react-icons/io5";
 import AuthSocial from "./AuthSocial";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useDispatch } from "react-redux";
+import { Register } from "../../store/Auth/authSlice";
+import LoadingBtn from "./LoadingBtn";
 
 const RegisterForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const schema = z.object({
     firstName: z.string().min(1),
     lastName: z.string().min(1),
@@ -20,6 +25,12 @@ const RegisterForm = () => {
     setError,
     formState: { errors, isSubmitting },
   } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
     resolver: zodResolver(schema),
   });
 
@@ -31,8 +42,11 @@ const RegisterForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // await new Promise((resolve) => setTimeout(resolve, 1000));
+      dispatch(Register(data));
       console.log(data);
+
+      // navigate(`/verify/${data.email}`);
     } catch (error) {
       setError("root", {
         message: "this email is already taken",
@@ -61,6 +75,7 @@ const RegisterForm = () => {
         {errors.firstName && <div>{errors.firstName.message}</div>}
         <div class="relative w-full">
           <input
+            {...register("lastName")}
             required
             type="text"
             id="lastName"
@@ -78,6 +93,7 @@ const RegisterForm = () => {
       </div>
       <div class="relative">
         <input
+          {...register("email")}
           type="email"
           id="email"
           className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -98,6 +114,7 @@ const RegisterForm = () => {
         />
 
         <input
+          {...register("password")}
           type={showPassword ? "text" : "password"}
           id="password"
           className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -119,13 +136,14 @@ const RegisterForm = () => {
           </Link>
         </p>
       </div>
-      <button
+      {/* <button
         disabled={isSubmitting}
         type="submit"
         className="w-full bg-black rounded-md p-3 text-white"
       >
         Register
-      </button>
+      </button> */}
+      <LoadingBtn>Register</LoadingBtn>
       {errors.root && <div>{errors.root.message}</div>}
       <AuthSocial />
     </form>

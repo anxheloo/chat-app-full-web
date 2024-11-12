@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import AssignMemberToGroup from "../Members/AssignMemberToGroup";
+import Modal from "./Modal";
 
 const membersExample = [
   { id: 1, name: "user 1" },
@@ -61,7 +62,7 @@ const CreateGroupModal = ({ toggleCreateGroup }) => {
   console.log("this are members: ", members);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.2)] flex items-center justify-center z-[999]">
+    <Modal>
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-[400px] h-full flex flex-col justify-between max-h-[300px] bg-white rounded-md p-4"
@@ -150,7 +151,7 @@ const CreateGroupModal = ({ toggleCreateGroup }) => {
           </button>
         </div>
       </form>
-    </div>
+    </Modal>
   );
 };
 

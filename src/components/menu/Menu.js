@@ -7,6 +7,7 @@ import MenuItem from "./MenuItem";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { toggleLeftSide } from "../../store/Actions/actionsSlice";
 import { useNavigate } from "react-router-dom";
+import { LogoutUser } from "../../store/Auth/authSlice";
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,11 @@ const Menu = () => {
 
   const handleThemeToggle = () => {
     dispatch(toggleTheme());
+  };
+
+  const logout = () => {
+    console.log("this is logout");
+    dispatch(LogoutUser());
   };
 
   return (
@@ -62,7 +68,7 @@ const Menu = () => {
                 return (
                   <button
                     key={index}
-                    onClick={() => console.log("toggle logout")}
+                    onClick={logout}
                     className=" text-left hover:bg-gray-100 p-1 rounded-sm flex justify-between gap-2 items-center"
                   >
                     {item.title}

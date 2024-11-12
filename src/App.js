@@ -5,6 +5,7 @@ import DashboardLayout from "./layouts/dashboard/DashboardLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingScreen from "./components/LoadingScreen";
 import AuthLayout from "./layouts/AuthLayout";
+import ErrorBox from "./components/Error/ErrorBox";
 // import Settings from "./pages/dashboard/Settings/Settings";
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
   const Login = Loadable(lazy(() => import("./pages/auth/Login")));
 
   const Register = Loadable(lazy(() => import("./pages/auth/Register")));
+
+  const Verify = Loadable(lazy(() => import("./pages/auth/Verify")));
 
   const ResetPassword = Loadable(
     lazy(() => import("./pages/auth/ResetPassword"))
@@ -58,6 +61,7 @@ function App() {
           <Route path="auth" element={<AuthLayout />}>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path="verify/:email" element={<Verify />} />
             <Route path="reset-password" element={<ResetPassword />} />
             <Route path="new-password" element={<NewPassword />} />
           </Route>
@@ -65,6 +69,11 @@ function App() {
           <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>
+
+      <ErrorBox />
+      {/* <div className="w-[250px] bg-red-600 h-[50px] absolute left-0 right-0 -bottom-16 mx-auto flex justify-center items-center">
+        An error occurred
+      </div> */}
     </div>
   );
 }
