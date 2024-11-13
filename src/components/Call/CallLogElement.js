@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import ProfilePic from "../Chat/Profile/ProfilePic";
 import { MdArrowOutward } from "react-icons/md";
-import { GoArrowDownLeft } from "react-icons/go";
+// import { GoArrowDownLeft } from "react-icons/go";
 import { IoCallOutline } from "react-icons/io5";
 import { TbVideo } from "react-icons/tb";
 
@@ -11,7 +11,7 @@ import { TbVideo } from "react-icons/tb";
 const CallLogElement = memo(({ data, version }) => {
   return (
     <div className="w-full h-[65px] rounded-md flex gap-3  border border-bluePrimary dark:border-none dark:bg-black px-2 cursor-pointer dark:text-white hover:opacity-80 hover:shadow-lg">
-      <ProfilePic data={data} />
+      <ProfilePic img={data?.img} online={data?.online} />
       <div className="flex-1 flex flex-col justify-between py-2 dark:text-white truncate">
         <h3 className="font-semibold">{data?.name}</h3>
         <p className="truncate text-sm flex items-center gap-2">

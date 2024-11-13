@@ -5,7 +5,7 @@ import DashboardLayout from "./layouts/dashboard/DashboardLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingScreen from "./components/LoadingScreen";
 import AuthLayout from "./layouts/AuthLayout";
-import ErrorBox from "./components/Error/ErrorBox";
+import StatusBox from "./components/Status/StatusBox";
 // import Settings from "./pages/dashboard/Settings/Settings";
 
 function App() {
@@ -70,10 +70,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <ErrorBox />
-      {/* <div className="w-[250px] bg-red-600 h-[50px] absolute left-0 right-0 -bottom-16 mx-auto flex justify-center items-center">
-        An error occurred
-      </div> */}
+      <StatusBox />
     </div>
   );
 }

@@ -18,7 +18,7 @@ const Section1 = ({ version }) => {
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-4">
-        <ProfilePic data={data} version={2} />
+        <ProfilePic img={data?.img} version={2} online={data?.online} />
         <div className="flex flex-col dark:text-white text-sm">
           <span>Anxhelo C</span>
           <span>+123123123</span>

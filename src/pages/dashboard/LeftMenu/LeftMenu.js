@@ -22,8 +22,14 @@ const LeftMenu = ({ children, title }) => {
         <h4 className=" text-lg font-bold dark:text-white">{title}</h4>
 
         {title === "Chats" && (
-          <div className=" rounded-full p-1 active:bg-[rgba(0,0,0,0.1)]">
-            <HiOutlineUsers size={25} onClick={handleFriendsModal} />
+          <div
+            className=" rounded-full p-1 active:bg-[rgba(0,0,0,0.1)] cursor-pointer"
+            onClick={handleFriendsModal}
+          >
+            <HiOutlineUsers
+              size={25}
+              className=" text-black dark:text-white pointer-events-none"
+            />
           </div>
         )}
       </div>

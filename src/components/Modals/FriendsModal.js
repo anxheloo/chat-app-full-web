@@ -29,7 +29,7 @@ const FriendModal = () => {
   return (
     <Modal>
       <div className="w-full max-w-[400px] h-fit max-h-[500px] flex flex-col bg-white rounded-md p-4">
-        <div className="flex items-center justify-between px-2 sticky top-0 z-10 bg-lightBlue dark:bg-bgDark2 pb-1">
+        <div className="flex items-center justify-between px-2 sticky top-0 z-10 bg-lightBlue pb-1">
           <button
             id="0"
             onClick={handleTabChange}

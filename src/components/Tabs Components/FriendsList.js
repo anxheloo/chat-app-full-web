@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Friends } from "../../store/Users/usersSlice";
+import { FriendComponent } from "../Friends/Friends";
 
 const FriendsList = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const FriendsList = () => {
   return (
     <div>
       {friends.map((el, index) => (
-        <div key={index}>{el.firstName}</div>
+        <FriendComponent key={el._id} {...el} />
       ))}
     </div>
   );

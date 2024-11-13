@@ -5,6 +5,8 @@ const initialState = {
   users: [],
   friends: [],
   friendRequests: [],
+  chat_type: null,
+  room_id: null,
 };
 
 const usersSlice = createSlice({
@@ -20,11 +22,21 @@ const usersSlice = createSlice({
     updateFriendRequests: (state, action) => {
       state.friendRequests = action.payload;
     },
+
+    selectConversation: (state, action) => {
+      const { room_id } = action.payload;
+      state.chat_type = "individual";
+      state.room_id = room_id;
+    },
   },
 });
 
-export const { updateUsers, updateFriends, updateFriendRequests } =
-  usersSlice.actions;
+export const {
+  updateUsers,
+  updateFriends,
+  updateFriendRequests,
+  selectConversation,
+} = usersSlice.actions;
 
 export default usersSlice.reducer;
 
@@ -80,5 +92,11 @@ export const FriendRequests = () => {
       .catch((err) => {
         console.log("this is err:", err);
       });
+  };
+};
+
+export const SelectConversation = ({ room_id }) => {
+  return (dispatch, getState) => {
+    dispatch(selectConversation({ room_id }));
   };
 };
