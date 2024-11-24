@@ -8,7 +8,8 @@ const LeftMenu = ({ children, title }) => {
 
   const [friendsModal, setFriendsModal] = useState(false);
 
-  const handleFriendsModal = () => {
+  const handleFriendsModal = (event) => {
+    event.stopPropagation();
     setFriendsModal((prev) => !prev);
   };
 
@@ -35,7 +36,7 @@ const LeftMenu = ({ children, title }) => {
       </div>
 
       {children}
-      {friendsModal && <FriendModal />}
+      {friendsModal && <FriendModal closeModal={handleFriendsModal} />}
     </div>
   );
 };

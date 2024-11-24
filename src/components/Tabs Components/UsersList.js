@@ -5,18 +5,19 @@ import { UserComponent } from "../Friends/Friends";
 
 const UsersList = () => {
   const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.users);
 
   useEffect(() => {
     dispatch(FetchUsers());
-  }, [dispatch]);
-
-  const { users } = useSelector((state) => state.users);
+  }, []);
 
   return (
     <div>
-      {users.map((el, index) => (
-        <UserComponent key={el._id} {...el} />
-      ))}
+      {users.length > 0 ? (
+        users.map((el, index) => <UserComponent key={el._id} {...el} />)
+      ) : (
+        <div>loading...</div>
+      )}
     </div>
   );
 };

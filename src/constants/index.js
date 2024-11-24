@@ -226,7 +226,6 @@ const Chatlist = [
     time: "9:36",
     unread: 0,
     pinned: true,
-    online: false,
   },
   {
     id: 1,

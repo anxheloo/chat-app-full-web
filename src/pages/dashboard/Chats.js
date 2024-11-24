@@ -1,14 +1,35 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useEffect, useMemo } from "react";
 import { LuArrowDownSquare } from "react-icons/lu";
 import ChatElement from "../../components/Chat/ChatElement";
 import Search from "../../components/Inputs/Search";
 import { Chatlist } from "../../constants";
 import LeftMenu from "./LeftMenu/LeftMenu";
+import { socket } from "../../socket";
+import { useSelector } from "react-redux";
+
+// const user_id = window.localStorage.getItem("user_id");
 
 const Chats = memo(() => {
   // Memoize filtered lists to prevent re-filtering on every render
-  const pinnedChats = useMemo(() => Chatlist.filter((item) => item.pinned), []);
-  const allChats = useMemo(() => Chatlist.filter((item) => !item.pinned), []);
+  const { conversations } = useSelector((state) => state.users.direct_chat);
+  const { user_id } = useSelector((state) => state.auth);
+
+  console.log("this is user_id");
+
+  const pinnedChats = useMemo(
+    () => conversations.filter((item) => item.pinned),
+    [conversations]
+  );
+  const allChats = useMemo(
+    () => conversations.filter((item) => !item.pinned),
+    [conversations]
+  );
+
+  useEffect(() => {
+    // socket.emit("get_direct_conversations", { user_id: user_id }, (data) => {
+    //   // data => list of conversations
+    // });
+  }, []);
 
   return (
     <LeftMenu title={"Chats"}>

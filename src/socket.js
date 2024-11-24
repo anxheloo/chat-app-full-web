@@ -1,13 +1,11 @@
 import io from "socket.io-client";
 
-let socket;
+let socket = null;
 
-const connectSocket = (user_id) => {
-  socket = io("http://localhost:5000", {
-    query: `user_id=${user_id}`,
+let connectSocket = (user_id) => {
+  io("http://localhost:5000", {
+    query: { user_id },
   });
 };
-
-//
 
 export { socket, connectSocket };

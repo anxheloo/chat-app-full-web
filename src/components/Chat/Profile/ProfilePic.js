@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import { RxAvatar } from "react-icons/rx";
 
 // VERSION DEFAULT : Displaying online dot
 // VERSION 2 : Not Displaying online dot
@@ -9,11 +10,15 @@ const ProfilePic = memo(({ img, online, handleClick, version }) => {
       className=" h-full relative flex items-center cursor-pointer"
       onClick={handleClick}
     >
-      <img
-        src={img}
-        alt="user"
-        className="rounded-full size-10 pointer-events-none"
-      />
+      {img ? (
+        <img
+          src={img}
+          alt="user"
+          className="rounded-full size-10 pointer-events-none"
+        />
+      ) : (
+        <RxAvatar className="rounded-full size-10 pointer-events-none" />
+      )}
       {version !== 2 && (
         <div
           className={`size-[10px] rounded-full ${

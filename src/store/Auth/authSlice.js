@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../../utils/axios";
+import { socket } from "../../socket";
 
 const initialState = {
   isLoggedIn: false,
@@ -8,6 +9,7 @@ const initialState = {
   isLoading: false,
   status: null,
   message: null,
+  user_id: null,
 };
 
 const authSlice = createSlice({
@@ -29,10 +31,15 @@ const authSlice = createSlice({
       state.message = message;
       state.isLoading = isLoading;
     },
+
+    updateUserId: (state, action) => {
+      state.user_id = action.payload;
+    },
   },
 });
 
-export const { logIn, signOut, updateIsLoading } = authSlice.actions;
+export const { logIn, signOut, updateIsLoading, updateUserId } =
+  authSlice.actions;
 
 export default authSlice.reducer;
 
@@ -56,8 +63,10 @@ export const LoginUser = (formValues) => {
       )
       .then((res) => {
         console.log("this is res:", res);
+        // window.localStorage.setItem("user_id", res?.data?.user_id);
+        dispatch(updateUserId(res.data.user_id));
         dispatch(logIn({ isLoggedIn: true, token: res.data.token }));
-        window.localStorage.setItem("user_id", res?.data?.user_id);
+        console.log("this is res?.data?.user_id:", res?.data?.user_id);
         dispatch(
           updateIsLoading({
             isLoading: false,
@@ -81,9 +90,30 @@ export const LoginUser = (formValues) => {
   };
 };
 
+// export const LogoutUser = () => {
+//   return async (dispatch) => {
+//     window.localStorage.removeItem("user_id");
+//     dispatch(signOut());
+//   };
+// };
+
 export const LogoutUser = () => {
-  return async (dispatch) => {
-    window.localStorage.removeItem("user_id");
+  return async (dispatch, getState) => {
+    // Disconnect socket
+    // if (socket) {
+    //   socket.emit("end", { user_id: window.localStorage.getItem("user_id") }); // Inform server
+    //   // socket.disconnect(); // Disconnect socket
+    // }
+    // if (socket && user_id) {
+    socket?.emit("end", { user_id: getState().auth?.user_id }); // Inform server
+    socket?.disconnect(); // Properly disconnect socket
+    // }
+
+    // Clear user_id from local storage
+    // window.localStorage.removeItem("user_id");
+    dispatch(updateUserId(null));
+
+    // Dispatch Redux action to clear auth state
     dispatch(signOut());
   };
 };
@@ -221,6 +251,7 @@ export const Register = (formValues) => {
         const status = getState().auth.status;
         // if (!errorState) {
         // if (errorState) {
+        // For mobile try navigate maybe outside of slice
         if (status === "success") {
           window.location.href = `/auth/verify/${email}`;
         }
@@ -248,8 +279,9 @@ export const VerifyOTP = (formValues) => {
       )
       .then((res) => {
         console.log("this is res:", res);
+        // window.localStorage.setItem("user_id", res?.data?.user_id);
+        dispatch(updateUserId(res?.data?.user_id));
         dispatch(logIn({ isLoggedIn: true, token: res.data.token }));
-        window.localStorage.setItem("user_id", res?.data?.user_id);
 
         dispatch(
           updateIsLoading({

@@ -43,7 +43,11 @@ const Menu = () => {
 
       <div className="flex flex-col gap-6 items-center flex-1 w-full">
         {MenuItems1.map((item) =>
-          item.index === 3 ? item.icon : <MenuItem item={item} />
+          item.index === 3 ? (
+            <div key={item.index}>{item.icon}</div>
+          ) : (
+            <MenuItem key={item.index} item={item} />
+          )
         )}
       </div>
 

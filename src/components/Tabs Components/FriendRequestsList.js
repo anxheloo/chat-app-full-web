@@ -14,13 +14,13 @@ const FriendRequestsList = () => {
 
   return (
     <div>
-      {friendRequests.map((el, index) => (
-        <FriendRequestComponent
-          key={el._id}
-          {...el.sender}
-          friendRequestId={el._id}
-        />
-      ))}
+      {friendRequests.length > 0 ? (
+        friendRequests.map((el, index) => (
+          <FriendRequestComponent key={el._id} {...el.sender} />
+        ))
+      ) : (
+        <div>you have 0 friend requests</div>
+      )}
     </div>
   );
 };

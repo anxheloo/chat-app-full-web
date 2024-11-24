@@ -14,9 +14,11 @@ const FriendsList = () => {
 
   return (
     <div>
-      {friends.map((el, index) => (
-        <FriendComponent key={el._id} {...el} />
-      ))}
+      {friends.length > 0 ? (
+        friends.map((el, index) => <FriendComponent key={el._id} {...el} />)
+      ) : (
+        <div>you have no friends</div>
+      )}
     </div>
   );
 };
